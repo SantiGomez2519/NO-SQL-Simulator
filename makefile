@@ -2,7 +2,7 @@
 CXX = g++
 
 # Define the compiler flags
-CXXFLAGS = -Wall -std=c++11
+CXXFLAGS = -Wall -std=c++17
 
 # Define the target executable
 TARGET = main

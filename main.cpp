@@ -51,7 +51,7 @@ class MotorDatosNoSQL {
         void listDocument(const std::string& id_document) const {
             auto doc_it = tablaDocumentos.find(id_document);
             if (doc_it != tablaDocumentos.end()) {
-                std::cout << "Documento "" << id_document << "":" << std::endl;
+                std::cout << "Documento " << id_document << ":" << std::endl;
                 for (const auto& [field_key, field_value] : doc_it->second) {
                     std::cout << "  Campo: " << field_key << " | Valor: " << field_value << std::endl;
                 }
@@ -66,7 +66,7 @@ class MotorDatosNoSQL {
                 return;
             }
             for (const auto& [id_document, fields] : tablaDocumentos) {
-                std::cout << "Documento "" << id_document << "":" << std::endl;
+                std::cout << "Documento " << id_document << ":" << std::endl;
                 for (const auto& [field_key, field_value] : fields) {
                     std::cout << "  Campo: " << field_key << " | Valor: " << field_value << std::endl;
                 }
@@ -79,7 +79,15 @@ int main() {
     db.insertField("ABC123", "nombre", "Edison");
     db.insertField("ABC123", "edad", "52");
     db.insertField("ABC123", "programa", "Ingenieria de Sistemas");
+    db.insertField("XYZ789", "nombre", "Juan");
+    db.insertField("XYZ789", "edad", "25");
+    db.insertField("XYZ789", "programa", "Ingenieria de Software");
+
+    std::cout << "\nList document: ABC123\n" << std::endl;
     db.listDocument("ABC123");
+
+    std::cout << "\nList all documents\n" << std::endl;
+    db.listAll();
 
     return 0;
 }

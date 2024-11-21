@@ -23,7 +23,7 @@ make run
 
 To run the program, use the followings instructions:
 
-#### Create a document
+### Create a document
 ```
 INSERT_DOCUMENT <id_document> <key1=value>, <key2=value2> ...
 ```
@@ -33,7 +33,7 @@ INSERT_DOCUMENT <id_document> <key1=value>, <key2=value2> ...
 INSERT_DOCUMENT ABC nombre=santi apellido=gomez
 ```
 
-#### Insert field
+### Insert field
 ```
 INSERT_FIELD <id_document> <field_key> <field_value>
 ```
@@ -43,7 +43,7 @@ INSERT_FIELD <id_document> <field_key> <field_value>
 INSERT_FIELD ABCD nombre Edison
 ```
 
-#### Update field
+### Update field
 ```
 UPDATE_FIELD <id_document> <field_key> <field_value>
 ```
@@ -53,7 +53,7 @@ UPDATE_FIELD <id_document> <field_key> <field_value>
 UPDATE_FIELD ABCD nombre Lucas
 ```
 
-#### Get field
+### Get field
 ```
 GET_FIELD <id_document> <field_key>
 ```
@@ -63,7 +63,7 @@ GET_FIELD <id_document> <field_key>
 GET_FIELD ABC nombre
 ```
 
-#### Delete document
+### Delete document
 ```
 DELETE_DOCUMENT <id_document>
 ```
@@ -73,7 +73,7 @@ DELETE_DOCUMENT <id_document>
 DELETE_DOCUMENT ABC
 ```
 
-#### Delete field
+### Delete field
 ```
 DELETE_FIELD <id_document> <field_key>
 ```
@@ -83,7 +83,7 @@ DELETE_FIELD <id_document> <field_key>
 DELETE_FIELD ABC nombre
 ```
 
-#### List document
+### List document
 ```
 LIST_DOCUMENT <id_document>
 ```
@@ -93,7 +93,7 @@ LIST_DOCUMENT <id_document>
 LIST_DOCUMENT ABC
 ```
 
-#### List all documents
+### List all documents
 ```
 LIST_ALL
 ```
@@ -103,7 +103,7 @@ LIST_ALL
 LIST_ALL
 ```
 
-#### Finish the program
+### Finish the program
 ```
 exit
 ```

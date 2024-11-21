@@ -32,9 +32,6 @@ class NoSQLParser {
         void parseListAll(std::istringstream& stream);
 
         // Auxiliary methods
-        // Process a list of strings separated by commas
-        std::vector<std::string> processList(const std::string& parte);
-
         // Process a list of assignments in the format key1=value1,key2=value2,...
         std::unordered_map<std::string, std::string> processAssignments(const std::string& parte);
         

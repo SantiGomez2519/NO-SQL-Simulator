@@ -85,17 +85,6 @@ void NoSQLParser::parseListAll(std::istringstream& stream) {
     db.listAll();
 }
 
-// Process the list in the format item1, item2, ...
-std::vector<std::string> NoSQLParser::processList(const std::string& parte) {
-    std::vector<std::string> items;
-    std::string item;
-    std::istringstream stream(parte);
-    while (std::getline(stream, item, ',')) {
-        items.push_back(clean(item));
-    }
-    return items;
-}
-
 // Process the assignments in the format key1=value1,key2=value2,...
 std::unordered_map<std::string, std::string> NoSQLParser::processAssignments(const std::string& parte) {
     std::unordered_map<std::string, std::string> assignments;

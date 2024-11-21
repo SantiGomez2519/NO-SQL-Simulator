@@ -2,13 +2,13 @@
 CXX = g++
 
 # Define the compiler flags
-CXXFLAGS = -Wall -std=c++17
+CXXFLAGS = -Wall -g
 
 # Define the target executable
-TARGET = main
+TARGET = NOSQLDatabase
 
 # Define the source files
-SRCS = main.cpp MotorDatosNoSQL.cpp
+SRCS = main.cpp MotorDatosNoSQL.cpp NoSQLParser.cpp
 
 # Default target
 all: $(TARGET)

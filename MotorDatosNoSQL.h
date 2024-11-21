@@ -1,9 +1,9 @@
+#ifndef MOTOR_DATOS_NOSQL_H
+#define MOTOR_DATOS_NOSQL_H
+
 #include <iostream>
 #include <unordered_map>
 #include <string>
-
-#ifndef MOTOR_DATOS_NOSQL_H
-#define MOTOR_DATOS_NOSQL_H
 
 class MotorDatosNoSQL {
     private:

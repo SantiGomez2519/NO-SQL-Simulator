@@ -20,6 +20,10 @@ void NoSQLParser::parseCommand(const std::string& command) {
         parseUpdateField(stream);
     } else if (key_word == "get_field") {
         parseGetField(stream);
+    } else if (key_word == "delete_document") {
+        parseDeleteDocument(stream);
+    } else if (key_word == "delete_field") {
+        parseDeleteField(stream);
     } else if (key_word == "list_document") {
         parseListDocument(stream);
     } else if (key_word == "list_all") {
@@ -56,6 +60,18 @@ void NoSQLParser::parseUpdateField(std::istringstream& stream) {
 void NoSQLParser::parseGetField(std::istringstream& stream) {
     stream >> id_document >> field_key;
     db.getField(id_document, field_key);
+}
+
+// Delete a document
+void NoSQLParser::parseDeleteDocument(std::istringstream& stream) {
+    stream >> id_document;
+    db.deleteDocument(id_document);
+}
+
+// Delete a field from a document
+void NoSQLParser::parseDeleteField(std::istringstream& stream) {
+    stream >> id_document >> field_key;
+    db.deleteField(id_document, field_key);
 }
 
 // List a document

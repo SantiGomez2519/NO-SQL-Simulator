@@ -56,6 +56,16 @@ void MotorDatosNoSQL::getField(const std::string& id_document, const std::string
     std::cout << "Error: Document or field not found." << std::endl;
 }
 
+// Delete a document
+void MotorDatosNoSQL::deleteDocument(const std::string& id_document) {
+    // Erase the document from the hash table
+    if (documents_table.erase(id_document)) {
+        std::cout << "Document eliminated." << std::endl;
+    } else {
+        std::cout << "Error: Document not found." << std::endl;
+    }
+}
+
 // Delete a field from a document
 void MotorDatosNoSQL::deleteField(const std::string& id_document, const std::string& field_key) {
     auto doc_it = documents_table.find(id_document);
@@ -64,6 +74,11 @@ void MotorDatosNoSQL::deleteField(const std::string& id_document, const std::str
         std::cout << "Field eliminated from document." << std::endl;
     } else {
         std::cout << "Error: Document or field not found." << std::endl;
+    }
+
+    // If the document is empty, delete it
+    if (doc_it != documents_table.end() && doc_it->second.empty()) {
+        documents_table.erase(doc_it);
     }
 }
 

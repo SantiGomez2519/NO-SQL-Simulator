@@ -23,6 +23,9 @@ class MotorDatosNoSQL {
         // Get a document field
         void getField(const std::string& id_document, const std::string& field_key) const;
 
+        // Delete a document
+        void deleteDocument(const std::string& id_document);
+
         // Delete a field from a document
         void deleteField(const std::string& id_document, const std::string& field_key);
 

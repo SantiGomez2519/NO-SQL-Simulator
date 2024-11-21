@@ -26,6 +26,8 @@ class NoSQLParser {
         void parseInsertField(std::istringstream& stream);
         void parseUpdateField(std::istringstream& stream);
         void parseGetField(std::istringstream& stream);
+        void parseDeleteDocument(std::istringstream& stream);
+        void parseDeleteField(std::istringstream& stream);
         void parseListDocument(std::istringstream& stream);
         void parseListAll(std::istringstream& stream);
 

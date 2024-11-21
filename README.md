@@ -2,9 +2,9 @@
 
 ## Contents
 
-[Description]()
-[Running Instruccions]
-[Authors]
+- [Description](#description)
+- [Running Instruccions](#running-instructions)
+- [Authors](#authors)
 
 ## Description
 This project it's a basic NoSQL data engine in C++. The system let manage data documents using the Hash Table data structure to store the data with multiple fields key-value, identified for and unique `id_document`.
@@ -23,87 +23,91 @@ make run
 
 To run the program, use the followings instructions:
 
-**Create a document**
+#### Create a document
 ```
 INSERT_DOCUMENT <id_document> <key1=value>, <key2=value2> ...
 ```
 
-***Example***
+**Example**
 ```
 INSERT_DOCUMENT ABC nombre=santi apellido=gomez
 ```
 
-**Insert field**
+#### Insert field
 ```
 INSERT_FIELD <id_document> <field_key> <field_value>
 ```
 
-***Example***
+**Example**
 ```
 INSERT_FIELD ABCD nombre Edison
 ```
 
-**Update field**
+#### Update field
 ```
 UPDATE_FIELD <id_document> <field_key> <field_value>
 ```
 
-***Example***
+**Example**
 ```
 UPDATE_FIELD ABCD nombre Lucas
 ```
 
-**Get field**
+#### Get field
 ```
 GET_FIELD <id_document> <field_key>
 ```
 
-***Example***
+**Example**
 ```
 GET_FIELD ABC nombre
 ```
 
-**Delete document**
+#### Delete document
 ```
 DELETE_DOCUMENT <id_document>
 ```
 
-***Example***
+**Example**
 ```
 DELETE_DOCUMENT ABC
 ```
 
-**Delete field**
+#### Delete field
 ```
 DELETE_FIELD <id_document> <field_key>
 ```
 
-***Example***
+**Example**
 ```
 DELETE_FIELD ABC nombre
 ```
 
-**List document**
+#### List document
 ```
 LIST_DOCUMENT <id_document>
 ```
 
-***Example***
+**Example**
 ```
 LIST_DOCUMENT ABC
 ```
 
-**List all documents**
+#### List all documents
 ```
 LIST_ALL
 ```
 
-***Example***
+**Example**
 ```
 LIST_ALL
 ```
 
-**Finish the program**
+#### Finish the program
 ```
 exit
 ```
+
+## Authors
+- Santiago Gómez Ospina
+- Lucas Higuita Bedoya

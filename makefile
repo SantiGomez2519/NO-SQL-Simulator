@@ -8,7 +8,7 @@ CXXFLAGS = -Wall -std=c++17
 TARGET = main
 
 # Define the source files
-SRCS = main.cpp
+SRCS = main.cpp MotorDatosNoSQL.cpp
 
 # Default target
 all: $(TARGET)

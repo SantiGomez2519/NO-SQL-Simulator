@@ -1,111 +1,60 @@
 # NoSQL Simulator
 
-## Contents
-
+## Table of Contents
 - [Description](#description)
-- [Running Instruccions](#running-instructions)
+- [Execution Instructions](#execution-instructions)
+- [Available Commands](#available-commands)
+  - [Insert a Document](#insert-a-document)
+  - [Insert a Field](#insert-a-field)
+  - [Update a Field](#update-a-field)
+  - [Get a Field Value](#get-a-field-value)
+  - [Delete a Document](#delete-a-document)
+  - [Delete a Field](#delete-a-field)
+  - [List a Document](#list-a-document)
+  - [List All Documents](#list-all-documents)
+  - [Exit the Program](#exit-the-program)
+- [Usage Example](#usage-example)
 - [Authors](#authors)
 
 ## Description
-This project it's a basic NoSQL data engine in C++. The system let manage data documents using the Hash Table data structure to store the data with multiple fields key-value, identified for and unique `id_document`.
+**NoSQL Simulator** is a basic NoSQL data engine developed in C++. It enables users to manage data documents using a hash table as the main data structure. Each document is organized into key-value pairs and uniquely identified by an `id_document`.
 
-## Running Instructions
-Compile the project with the following command:
+### Key Features
+- Insert, update, retrieve, and delete fields within documents.
+- List fields of a specific document or all documents.
+- Interactive command-based system.
 
+## Execution Instructions
+
+### Compilation
+To compile the project, run the following command in the terminal:
 ```bash
 g++ main.cpp MotorDatosNoSQL.cpp NoSQLParser.cpp -o NoSQLDatabase
 ```
 
-Or you can use the makefile of the project, in the terminal
-```
+Alternatively, use the provided makefile:
+```bash
 make run
 ```
 
-To run the program, use the followings instructions:
+### Execution
+Run the compiled program with:
 
-### Create a document
-```
-INSERT_DOCUMENT <id_document> <key1=value>, <key2=value2> ...
-```
-
-**Example**
-```
-INSERT_DOCUMENT ABC nombre=santi, apellido=gomez
+```bash
+./NoSQLDatabase
 ```
 
-### Insert field
-```
-INSERT_FIELD <id_document> <field_key> <field_value>
+## Available Commands
+
+### Insert a Document
+Inserts a document with multiple key-value fields.
+```bashh
+INSERT_DOCUMENT <id_document> <key1=value1>, <key2=value2>, ...
 ```
 
-**Example**
-```
-INSERT_FIELD ABCD nombre Edison
-```
-
-### Update field
-```
-UPDATE_FIELD <id_document> <field_key> <field_value>
-```
-
-**Example**
-```
-UPDATE_FIELD ABCD nombre Lucas
-```
-
-### Get field
-```
-GET_FIELD <id_document> <field_key>
-```
-
-**Example**
-```
-GET_FIELD ABC nombre
-```
-
-### Delete document
-```
-DELETE_DOCUMENT <id_document>
-```
-
-**Example**
-```
-DELETE_DOCUMENT ABC
-```
-
-### Delete field
-```
-DELETE_FIELD <id_document> <field_key>
-```
-
-**Example**
-```
-DELETE_FIELD ABC nombre
-```
-
-### List document
-```
-LIST_DOCUMENT <id_document>
-```
-
-**Example**
-```
-LIST_DOCUMENT ABC
-```
-
-### List all documents
-```
-LIST_ALL
-```
-
-**Example**
-```
-LIST_ALL
-```
-
-### Finish the program
-```
-exit
+#### Example
+```bash
+INSERT_DOCUMENT ABC name=John, surname=Doe
 ```
 
 ## Authors

@@ -30,7 +30,7 @@ INSERT_DOCUMENT <id_document> <key1=value>, <key2=value2> ...
 
 **Example**
 ```
-INSERT_DOCUMENT ABC nombre=santi apellido=gomez
+INSERT_DOCUMENT ABC nombre=santi, apellido=gomez
 ```
 
 ### Insert field

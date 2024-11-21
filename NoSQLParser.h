@@ -11,7 +11,10 @@
 
 class NoSQLParser {
     private:
+        // Reference to the database
         MotorDatosNoSQL db;
+
+        // Variables to store the command parts
         std::string command;
         std::string id_document;
         std::string field_key;
@@ -27,9 +30,14 @@ class NoSQLParser {
         void parseListAll(std::istringstream& stream);
 
         // Auxiliary methods
+        // Process a list of strings separated by commas
         std::vector<std::string> processList(const std::string& parte);
+
+        // Process a list of assignments in the format key1=value1,key2=value2,...
         std::unordered_map<std::string, std::string> processAssignments(const std::string& parte);
-        std::string clean(const std::string& cadena);
+        
+        // Clean a string removing leading and trailing spaces
+        std::string clean(const std::string& string);
 
     public:
         NoSQLParser(MotorDatosNoSQL& db);

@@ -96,8 +96,8 @@ std::unordered_map<std::string, std::string> NoSQLParser::processAssignments(con
 }
 
 // Clean the string by removing leading and trailing spaces
-std::string NoSQLParser::clean(const std::string& cadena) {
-    std::string limpia = cadena;
-    limpia.erase(std::remove_if(limpia.begin(), limpia.end(), ::isspace), limpia.end());
-    return limpia;
+std::string NoSQLParser::clean(const std::string& string) {
+    std::string cleaned = string;
+    cleaned.erase(std::remove_if(cleaned.begin(), cleaned.end(), ::isspace), cleaned.end());
+    return cleaned;
 }

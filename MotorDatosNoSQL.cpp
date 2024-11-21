@@ -1,76 +1,96 @@
 #include "MotorDatosNoSQL.h"
 
+// Insert a document with the fields
 void MotorDatosNoSQL::insertDocument(const std::string& id_document, const std::unordered_map<std::string, std::string>& fields) {
-    if (tablaDocumentos.find(id_document) != tablaDocumentos.end()) {
-        std::cout << "Error: El documento ya existe." << std::endl;
+    // Check if the document already exist
+    if (documents_table.find(id_document) != documents_table.end()) {
+        std::cout << "Error: The document already exist." << std::endl;
         return;
     }
-    tablaDocumentos[id_document] = fields;
-    std::cout << "Documento insertado." << std::endl;
+
+    // Insert the document
+    documents_table[id_document] = fields;
+    std::cout << "Document inserted." << std::endl;
 }
 
+// Insert a field in a document or create a new document with the field
 void MotorDatosNoSQL::insertField(const std::string& id_document, const std::string& field_key, const std::string& field_value) {
-    auto& document = tablaDocumentos[id_document];
+    // Check if the document already exist
+    auto& document = documents_table[id_document];
     if (document.find(field_key) != document.end()) {
-        std::cout << "Error: El campo ya existe en el documento." << std::endl;
+        std::cout << "Error: The field already exist in the document." << std::endl;
         return;
     }
+
+    // Insert the field
     document[field_key] = field_value;
-    std::cout << "Campo insertado en el documento." << std::endl;
+    std::cout << "Field inserted in the document." << std::endl;
 }
 
+// Update a document field
 void MotorDatosNoSQL::updateField(const std::string& id_document, const std::string& field_key, const std::string& new_value) {
-    auto it = tablaDocumentos.find(id_document);
-    if (it == tablaDocumentos.end() || it->second.find(field_key) == it->second.end()) {
-        std::cout << "Error: Documento o campo no encontrado." << std::endl;
+    // Check if the document and field exist
+    auto it = documents_table.find(id_document);
+    if (it == documents_table.end() || it->second.find(field_key) == it->second.end()) {
+        std::cout << "Error: Document or field not found." << std::endl;
         return;
     }
+
+    // Update the field
     it->second[field_key] = new_value;
-    std::cout << "Campo actualizado en el documento." << std::endl;
+    std::cout << "Field updated in the document." << std::endl;
 }
 
+// Get a document field
 void MotorDatosNoSQL::getField(const std::string& id_document, const std::string& field_key) const {
-    auto doc_it = tablaDocumentos.find(id_document);
-    if (doc_it != tablaDocumentos.end()) {
+    // Look the document and field in the hash table
+    auto doc_it = documents_table.find(id_document);
+    if (doc_it != documents_table.end()) {
         auto field_it = doc_it->second.find(field_key);
+        // Print the value of the field
         if (field_it != doc_it->second.end()) {
-            std::cout << "Valor: " << field_it->second << std::endl;
+            std::cout << "Value: " << field_it->second << std::endl;
             return;
         }
     }
-    std::cout << "Error: Documento o campo no encontrado." << std::endl;
+    std::cout << "Error: Document or field not found." << std::endl;
 }
 
+// Delete a field from a document
 void MotorDatosNoSQL::deleteField(const std::string& id_document, const std::string& field_key) {
-    auto doc_it = tablaDocumentos.find(id_document);
-    if (doc_it != tablaDocumentos.end() && doc_it->second.erase(field_key)) {
-        std::cout << "Campo eliminado del documento." << std::endl;
+    auto doc_it = documents_table.find(id_document);
+    // Erase the field from the document
+    if (doc_it != documents_table.end() && doc_it->second.erase(field_key)) {
+        std::cout << "Field eliminated from document." << std::endl;
     } else {
-        std::cout << "Error: Documento o campo no encontrado." << std::endl;
+        std::cout << "Error: Document or field not found." << std::endl;
     }
 }
 
+// List a document
 void MotorDatosNoSQL::listDocument(const std::string& id_document) const {
-    auto doc_it = tablaDocumentos.find(id_document);
-    if (doc_it != tablaDocumentos.end()) {
-        std::cout << "Documento " << id_document << ":" << std::endl;
+    auto doc_it = documents_table.find(id_document);
+    // Print the fields of the document
+    if (doc_it != documents_table.end()) {
+        std::cout << "Document " << id_document << ":" << std::endl;
         for (const auto& [field_key, field_value] : doc_it->second) {
-            std::cout << "  Campo: " << field_key << " | Valor: " << field_value << std::endl;
+            std::cout << "  Field: " << field_key << " | Value: " << field_value << std::endl;
         }
     } else {
-        std::cout << "Error: Documento no encontrado." << std::endl;
+        std::cout << "Error: Document not found." << std::endl;
     }
 }
 
+// List all documents
 void MotorDatosNoSQL::listAll() const {
-    if (tablaDocumentos.empty()) {
-        std::cout << "No hay documentos." << std::endl;
+    if (documents_table.empty()) {
+        std::cout << "There are no documents." << std::endl;
         return;
     }
-    for (const auto& [id_document, fields] : tablaDocumentos) {
-        std::cout << "Documento " << id_document << ":" << std::endl;
+    for (const auto& [id_document, fields] : documents_table) {
+        std::cout << "Document " << id_document << ":" << std::endl;
         for (const auto& [field_key, field_value] : fields) {
-            std::cout << "  Campo: " << field_key << " | Valor: " << field_value << std::endl;
+            std::cout << "  Field: " << field_key << " | Value: " << field_value << std::endl;
         }
     }
 }

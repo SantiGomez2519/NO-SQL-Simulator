@@ -60,3 +60,5 @@ INSERT_DOCUMENT ABC name=John, surname=Doe
 ## Authors
 - Santiago Gómez Ospina
 - Lucas Higuita Bedoya
+- Miguel Angel Ortiz Puerta
+- Juan Simón Ospina Martínez
